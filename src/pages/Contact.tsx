@@ -1,45 +1,64 @@
+import { Button, Card, Input, SectionHeader, Textarea } from '../components/ui'
+
 export default function Contact() {
   return (
     <section className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-semibold tracking-tight">Contact</h1>
-        <p className="mt-2 text-sm opacity-80">Formulaire simple (placeholder).</p>
+      <SectionHeader
+        title="Contact"
+        subtitle="Page contact dédiée (placeholder)."
+      />
+
+      <div className="grid gap-4 md:grid-cols-2">
+        <Card className="p-5">
+          <form
+            className="space-y-3"
+            onSubmit={(e) => {
+              e.preventDefault()
+              alert('Message démo 🙂')
+            }}
+          >
+            <div className="grid gap-3 md:grid-cols-2">
+              <div>
+                <div className="text-sm mb-1">Nom</div>
+                <Input placeholder="Ton nom" />
+              </div>
+              <div>
+                <div className="text-sm mb-1">Email</div>
+                <Input placeholder="toi@exemple.com" type="email" required />
+              </div>
+            </div>
+            <div>
+              <div className="text-sm mb-1">Message</div>
+              <Textarea rows={6} placeholder="Décris ton besoin…" required />
+            </div>
+            <Button type="submit">Envoyer</Button>
+          </form>
+        </Card>
+
+        <Card className="p-5">
+          <div className="space-y-4 text-sm">
+            <div>
+              <div className="font-medium">Coordonnées</div>
+              <div className="opacity-80 mt-2">
+                Téléphone : +33 0 00 00 00 00<br />
+                Email : hello@uxrepublic.example<br />
+                Adresse : Bordeaux / Paris / Lyon (placeholder)
+              </div>
+            </div>
+
+            <div className="pt-3 border-t border-black/10 dark:border-white/10" />
+
+            <div>
+              <div className="font-medium">Réseaux</div>
+              <div className="opacity-80 mt-2 space-y-1">
+                <div><a className="underline decoration-black/20 dark:decoration-white/20 hover:opacity-80" href="#">LinkedIn</a></div>
+                <div><a className="underline decoration-black/20 dark:decoration-white/20 hover:opacity-80" href="#">X / Twitter</a></div>
+                <div><a className="underline decoration-black/20 dark:decoration-white/20 hover:opacity-80" href="#">Medium</a></div>
+              </div>
+            </div>
+          </div>
+        </Card>
       </div>
-
-      <form
-        className="space-y-4 max-w-xl"
-        onSubmit={(e) => {
-          e.preventDefault()
-          alert('Formulaire démo 🙂')
-        }}
-      >
-        <label className="block">
-          <div className="text-sm mb-1">Email</div>
-          <input
-            required
-            type="email"
-            className="w-full rounded-xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-neutral-950/50 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black/20 dark:focus:ring-white/20"
-            placeholder="toi@exemple.com"
-          />
-        </label>
-
-        <label className="block">
-          <div className="text-sm mb-1">Message</div>
-          <textarea
-            required
-            rows={5}
-            className="w-full rounded-xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-neutral-950/50 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black/20 dark:focus:ring-white/20"
-            placeholder="Dis-moi tout…"
-          />
-        </label>
-
-        <button
-          type="submit"
-          className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5 transition"
-        >
-          Envoyer
-        </button>
-      </form>
     </section>
   )
 }

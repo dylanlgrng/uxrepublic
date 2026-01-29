@@ -1,11 +1,11 @@
 # uxrepublic (GitHub Pages)
 
-Repo prêt pour être publié sur :
+Site React + Vite + Tailwind prêt pour :
 `https://dylanlagrange.fr/uxrepublic`
 
-## Étapes
-1. Dépose ces fichiers à la racine du repo `uxrepublic`
-2. GitHub → Settings → Pages → Source : GitHub Actions
-3. Push/commit sur `main` → déploiement automatique
+- Homepage avec sections : Hero, Articles, Réalisations, À propos + personnes, FAQ, Newsletter, Contact, Footer
+- Pages : /articles, /articles/:slug, /realisations, /contact
 
-> Ne mets pas de "Custom domain" sur ce repo.
+## Déploiement
+Settings → Pages → Source : GitHub Actions
+Push sur main → build & deploy.
