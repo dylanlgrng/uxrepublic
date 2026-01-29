@@ -1,64 +1,52 @@
 import * as React from 'react'
 
-export function Badge({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center rounded-full border border-black/10 dark:border-white/10 px-2.5 py-1 text-xs font-medium bg-black/5 dark:bg-white/10">
-      {children}
-    </span>
-  )
+export function Container({ children }: { children: React.ReactNode }) {
+  return <div className="mx-auto max-w-4xl px-4">{children}</div>
+}
+
+export function Hairline() {
+  return <div className="h-px bg-black/10 dark:bg-white/10" />
 }
 
 export function Button({
   children,
   href,
   onClick,
-  variant = 'default',
+  variant = 'outline',
   type = 'button',
 }: {
   children: React.ReactNode
   href?: string
   onClick?: React.MouseEventHandler
-  variant?: 'default' | 'ghost'
+  variant?: 'outline' | 'solid'
   type?: 'button' | 'submit'
 }) {
-  const cls =
-    variant === 'ghost'
-      ? 'border border-black/10 dark:border-white/10 hover:bg-black/5 dark:hover:bg-white/5'
-      : 'border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/15'
   const base =
-    'inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition'
+    'inline-flex items-center justify-center rounded-md px-3 py-2 text-xs font-medium tracking-tight transition active:scale-[0.99]'
+  const cls =
+    variant === 'solid'
+      ? 'bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90'
+      : 'border border-black/20 text-black hover:bg-black/5 dark:border-white/20 dark:text-white dark:hover:bg-white/10'
 
-  if (href) {
-    return (
-      <a href={href} className={`${base} ${cls}`}>
-        {children}
-      </a>
-    )
-  }
+  if (href) return <a className={`${base} ${cls}`} href={href}>{children}</a>
+  return <button type={type} onClick={onClick} className={`${base} ${cls}`}>{children}</button>
+}
+
+export function Badge({ children }: { children: React.ReactNode }) {
   return (
-    <button type={type} onClick={onClick} className={`${base} ${cls}`}>
+    <span className="inline-flex items-center rounded border border-black/20 dark:border-white/20 px-2 py-1 text-[10px] font-medium text-black/70 dark:text-white/70">
       {children}
-    </button>
+    </span>
   )
 }
 
-export function SectionHeader({
-  title,
-  subtitle,
-  action,
-}: {
-  title: string
-  subtitle?: string
-  action?: React.ReactNode
-}) {
+export function PlaceholderImage({ height = 220 }: { height?: number }) {
   return (
-    <div className="flex items-end justify-between gap-4">
-      <div className="space-y-2">
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">{title}</h2>
-        {subtitle ? <p className="text-sm md:text-base opacity-80 max-w-2xl">{subtitle}</p> : null}
-      </div>
-      {action ? <div className="shrink-0">{action}</div> : null}
-    </div>
+    <div
+      className="w-full border border-black/20 dark:border-white/20 bg-black/10 dark:bg-white/10"
+      style={{ height }}
+      aria-hidden="true"
+    />
   )
 }
 
@@ -70,41 +58,36 @@ export function Card({
   className?: string
 }) {
   return (
-    <div className={`rounded-2xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-neutral-950/40 ${className}`}>
+    <div className={`border border-black/20 dark:border-white/20 bg-white dark:bg-neutral-950 ${className}`}>
       {children}
     </div>
   )
 }
 
-export function Media({
-  alt,
-  height = 220,
+export function SectionTitle({
+  title,
+  action,
 }: {
-  alt: string
-  height?: number
+  title: string
+  action?: React.ReactNode
 }) {
-  // placeholder gradient "image"
   return (
-    <div
-      aria-label={alt}
-      role="img"
-      className="w-full rounded-2xl border border-black/10 dark:border-white/10 overflow-hidden"
-      style={{ height }}
-    >
-      <div className="h-full w-full bg-gradient-to-br from-black/5 via-black/0 to-black/10 dark:from-white/10 dark:via-white/0 dark:to-white/5" />
+    <div className="flex items-center justify-between gap-4">
+      <h2 className="text-sm font-semibold tracking-tight">{title}</h2>
+      {action}
     </div>
   )
 }
 
-export function HorizontalCarousel({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export function RowAction({ children }: { children: React.ReactNode }) {
+  return <div className="text-[10px] text-black/60 dark:text-white/60">{children}</div>
+}
+
+export function SmallLink({ children, href }: { children: React.ReactNode; href: string }) {
   return (
-    <div className="-mx-4 px-4 overflow-x-auto">
-      <div className="flex gap-4 min-w-max py-1">{children}</div>
-    </div>
+    <a className="text-[10px] border border-black/20 dark:border-white/20 px-2 py-1 rounded hover:bg-black/5 dark:hover:bg-white/10" href={href}>
+      {children}
+    </a>
   )
 }
 
@@ -113,7 +96,7 @@ export function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
     <input
       {...props}
       className={
-        'w-full rounded-xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-neutral-950/50 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black/20 dark:focus:ring-white/20 ' +
+        'w-full rounded-md border border-black/20 dark:border-white/20 bg-white dark:bg-neutral-950 px-3 py-2 text-xs outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10 ' +
         (props.className ?? '')
       }
     />
@@ -125,36 +108,17 @@ export function Textarea(props: React.TextareaHTMLAttributes<HTMLTextAreaElement
     <textarea
       {...props}
       className={
-        'w-full rounded-xl border border-black/10 dark:border-white/10 bg-white/70 dark:bg-neutral-950/50 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-black/20 dark:focus:ring-white/20 ' +
+        'w-full rounded-md border border-black/20 dark:border-white/20 bg-white dark:bg-neutral-950 px-3 py-2 text-xs outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/10 ' +
         (props.className ?? '')
       }
     />
   )
 }
 
-export function FaqItem({
-  q,
-  a,
-}: {
-  q: string
-  a: string
-}) {
-  const [open, setOpen] = React.useState(false)
+export function Carousel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="rounded-2xl border border-black/10 dark:border-white/10">
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        className="w-full px-4 py-4 flex items-center justify-between gap-4 text-left"
-      >
-        <div className="text-sm md:text-base font-medium">{q}</div>
-        <div className="text-xs opacity-70">{open ? '—' : '+'}</div>
-      </button>
-      {open ? (
-        <div className="px-4 pb-4 text-sm opacity-80">
-          {a}
-        </div>
-      ) : null}
+    <div className="overflow-x-auto">
+      <div className="flex gap-4 min-w-max">{children}</div>
     </div>
   )
 }

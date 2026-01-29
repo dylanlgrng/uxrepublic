@@ -1,36 +1,28 @@
 import { Link, useParams } from 'react-router-dom'
-import { Badge, Media } from '../components/ui'
+import { Badge, Container, PlaceholderImage, SmallLink } from '../components/ui'
 
 export default function Article() {
   const { slug } = useParams()
 
   return (
-    <article className="space-y-6">
-      <Link to="/articles" className="text-sm opacity-80 hover:opacity-100">← Retour aux articles</Link>
+    <article className="space-y-4">
+      <Container>
+        <Link to="/articles" className="text-[10px] underline decoration-black/20 dark:decoration-white/20">← Retour</Link>
+      </Container>
 
-      <header className="space-y-3">
-        <div className="flex items-center gap-2">
+      <Container>
+        <div className="flex items-center justify-between">
+          <div className="text-2xl tracking-tight">Article : {slug}</div>
           <Badge>Catégorie</Badge>
-          <span className="text-xs opacity-60">•</span>
-          <span className="text-xs opacity-60">Lecture 5 min</span>
         </div>
-        <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">Article : {slug}</h1>
-        <p className="text-sm md:text-base opacity-80 max-w-3xl">
-          Intro de l’article (placeholder). Ici, tu brancheras du Markdown/MDX ou un CMS.
-        </p>
-      </header>
+      </Container>
 
-      <Media alt="Cover article" height={340} />
-
-      <div className="prose prose-neutral dark:prose-invert max-w-none">
-        <p>
-          Contenu (placeholder). Mets ici le texte, des images, des intertitres, etc.
-        </p>
-        <h2>Intertitre</h2>
-        <p>
-          Quelques paragraphes d’exemple pour visualiser la page article.
-        </p>
-      </div>
+      <Container>
+        <PlaceholderImage height={260} />
+        <div className="mt-4 text-[10px] text-black/60 dark:text-white/60 leading-relaxed">
+          Contenu article (placeholder).
+        </div>
+      </Container>
     </article>
   )
 }

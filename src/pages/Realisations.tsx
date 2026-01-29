@@ -1,39 +1,35 @@
-import { Card, Media, SectionHeader } from '../components/ui'
+import { Badge, Card, Carousel, Container, PlaceholderImage, SectionTitle, SmallLink } from '../components/ui'
 
 const items = [
-  { title: 'Portail selfcare', company: 'MAIF', desc: 'Parcours, friction, accessibilité.' },
-  { title: 'Messagerie sécurisée', company: 'Assurance', desc: 'Répondre, joindre, tracer, sécuriser.' },
-  { title: 'Outil interne', company: 'DSI', desc: 'Optimisation de flux métiers.' },
-  { title: 'Design system', company: 'Studio', desc: 'Docs, templates, gouvernance.' },
-  { title: 'Dashboard', company: 'Ops', desc: 'Lisibilité, priorisation, actions.' },
-  { title: 'Refonte', company: 'Service', desc: 'Structure, contenus, UI.' },
+  { title: 'Lorem ipsum', company: 'Entreprise', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.' },
+  { title: 'Lorem ipsum', company: 'Entreprise', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.' },
+  { title: 'Lorem ipsum', company: 'Entreprise', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.' },
+  { title: 'Lorem ipsum', company: 'Entreprise', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.' },
 ]
 
 export default function Realisations() {
   return (
-    <section className="space-y-6">
-      <SectionHeader
-        title="Réalisations"
-        subtitle="Page listing (placeholder)."
-      />
+    <section className="space-y-4">
+      <Container>
+        <SectionTitle title="Réalisations" />
+      </Container>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        {items.map((r) => (
-          <Card key={r.title + r.company} className="p-4 md:p-5">
-            <div className="space-y-3">
-              <Media alt={r.title} height={200} />
-              <div className="space-y-1">
-                <div className="text-lg font-semibold tracking-tight">{r.title}</div>
-                <div className="text-sm">
-                  <span className="opacity-70">Entreprise : </span>
-                  <span className="font-medium underline decoration-black/20 dark:decoration-white/20">{r.company}</span>
-                </div>
+      <Container>
+        <div className="grid gap-4 md:grid-cols-2">
+          {items.map((r, i) => (
+            <Card key={i} className="p-3">
+              <PlaceholderImage height={160} />
+              <div className="mt-3 text-lg tracking-tight">{r.title}</div>
+              <div className="mt-1 text-[10px] italic">{r.company}</div>
+              <div className="mt-2 text-[10px] text-black/60 dark:text-white/60 leading-relaxed">{r.desc}</div>
+              <div className="mt-3 flex items-center justify-between">
+                <SmallLink href="/uxrepublic/realisations">Lire →</SmallLink>
+                <Badge>Catégorie</Badge>
               </div>
-              <div className="text-sm opacity-80">{r.desc}</div>
-            </div>
-          </Card>
-        ))}
-      </div>
+            </Card>
+          ))}
+        </div>
+      </Container>
     </section>
   )
 }

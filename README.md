@@ -1,11 +1,11 @@
-# uxrepublic (GitHub Pages)
+# uxrepublic — wireframe + Apple-like minimal
 
-Site React + Vite + Tailwind prêt pour :
-`https://dylanlagrange.fr/uxrepublic`
+Homepage calée sur la wireframe :
+- Header simple (logo, burger, CTA)
+- Hero image full width + titre + 2 colonnes + boutons
+- Articles (1 large + 2 petites)
+- Réalisations (carousel)
+- À propos + carousel personnes
+- FAQ / Newsletter / Contact
 
-- Homepage avec sections : Hero, Articles, Réalisations, À propos + personnes, FAQ, Newsletter, Contact, Footer
-- Pages : /articles, /articles/:slug, /realisations, /contact
-
-## Déploiement
-Settings → Pages → Source : GitHub Actions
-Push sur main → build & deploy.
+Déploiement : Settings → Pages → Source : GitHub Actions

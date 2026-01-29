@@ -1,307 +1,240 @@
 import { Link } from 'react-router-dom'
-import { Badge, Button, Card, FaqItem, HorizontalCarousel, Media, SectionHeader, Input, Textarea } from '../components/ui'
+import { Badge, Button, Card, Carousel, Container, Hairline, PlaceholderImage, SectionTitle, SmallLink, RowAction, Input, Textarea } from '../components/ui'
 
 const articles = [
-  { slug: 'design-system', title: 'Faire vivre un design system', category: 'Design system', desc: 'De la gouvernance aux usages : comment éviter le cimetière de composants.' },
-  { slug: 'accessibilite', title: 'Accessibilité : les fondamentaux', category: 'Accessibilité', desc: 'Des pratiques simples et efficaces, sans religion ni jargon.' },
-  { slug: 'product-thinking', title: 'Le product thinking au quotidien', category: 'Produit', desc: 'Prioriser, tester, apprendre — sans perdre le sens.' },
+  { slug: 'lorem-1', title: 'Lorem ipsum dolor amet', category: 'Catégorie', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' },
+  { slug: 'lorem-2', title: 'Lorem ipsum dolor amet', category: 'Catégorie', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' },
+  { slug: 'lorem-3', title: 'Lorem ipsum dolor amet', category: 'Catégorie', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' },
 ]
 
 const realisations = [
-  { title: 'Portail selfcare', company: 'MAIF', desc: 'Simplification de parcours et réduction de friction sur des actions clés.' },
-  { title: 'Messagerie sécurisée', company: 'Assurance', desc: 'Parcours multi-canal cohérent, contraintes RGAA et robustesse.' },
-  { title: 'Outil interne', company: 'DSI', desc: 'Optimisation de flux métiers avec design system et accessibilité.' },
-  { title: 'Design system', company: 'Studio', desc: 'Documentation, modèles Figma, et composants réutilisables.' },
+  { title: 'Lorem ipsum', company: 'Entreprise', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.' },
+  { title: 'Lorem ipsum', company: 'Entreprise', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.' },
+  { title: 'Lorem ipsum', company: 'Entreprise', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.' },
 ]
 
 const people = [
-  { name: 'CEO', role: 'Direction', location: 'Paris' },
-  { name: 'Responsable agence', role: 'Région', location: 'Bordeaux' },
-  { name: 'Responsable agence', role: 'Région', location: 'Lyon' },
-  { name: 'Head of UX', role: 'Practice', location: 'Paris' },
-  { name: 'Head of Product', role: 'Practice', location: 'Bordeaux' },
+  { name: 'Jean Michel', role: "CEO d'ux republic", desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.' },
+  { name: 'Jean Michel', role: "Head of UX", desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.' },
+  { name: 'Jean Michel', role: "Responsable agence", desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.' },
 ]
 
-const faqs = [
-  { q: 'Quels types de missions ?', a: 'Discovery, delivery, design system, accessibilité, accompagnement produit.' },
-  { q: 'Travaillez-vous avec des équipes tech ?', a: 'Oui, en collaboration continue (rituels, specs, QA, itérations).' },
-  { q: 'Intervenez-vous en régie ou au forfait ?', a: 'Les deux, selon contexte, périmètre et rythme attendu.' },
-  { q: 'Comment démarre un projet ?', a: 'Un cadrage court, puis une boucle test/apprentissage pour sécuriser la suite.' },
-]
-
-function ArticleCard({
-  a,
-  variant,
-}: {
-  a: { slug: string; title: string; category: string; desc: string }
-  variant?: 'wide' | 'half'
-}) {
-  const isWide = variant === 'wide'
+function Hero() {
   return (
-    <Link to={`/articles/${a.slug}`} className="block group">
-      <Card className="p-4 md:p-5 hover:bg-black/5 dark:hover:bg-white/5 transition">
-        <div className={isWide ? 'grid md:grid-cols-12 gap-4 items-start' : 'space-y-3'}>
-          <div className={isWide ? 'md:col-span-5' : ''}>
-            <Media alt={`Image ${a.title}`} height={isWide ? 220 : 180} />
-          </div>
-          <div className={isWide ? 'md:col-span-7 space-y-3' : 'space-y-3'}>
-            <div className="flex items-center gap-2">
-              <Badge>{a.category}</Badge>
-              <div className="text-xs opacity-60 group-hover:opacity-100 transition">Lire →</div>
-            </div>
-            <div className="text-xl font-semibold tracking-tight">{a.title}</div>
-            <div className="text-sm opacity-80">{a.desc}</div>
+    <section className="space-y-6">
+      <Container>
+        <div className="border border-black/20 dark:border-white/20 bg-black/10 dark:bg-white/10 h-[260px]" aria-hidden="true" />
+      </Container>
+
+      <Container>
+        <h1 className="text-3xl leading-[1.05] tracking-tight">Lorem ipsum dolor amet</h1>
+        <div className="mt-4 grid gap-6 md:grid-cols-12">
+          <p className="text-[10px] text-black/60 dark:text-white/60 leading-relaxed md:col-span-7">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </p>
+          <div className="md:col-span-5 text-[10px] text-black/60 dark:text-white/60 leading-relaxed">
+            <div className="italic">Lorem ipsum dolor sit amet</div>
+            <div className="mt-2 italic">Lorem ipsum dolor sit amet</div>
+            <div className="mt-2 italic">Lorem ipsum dolor sit amet</div>
           </div>
         </div>
-      </Card>
-    </Link>
+        <div className="mt-5 flex gap-2">
+          <Button href="/uxrepublic/contact" variant="outline">Contactez-nous</Button>
+          <Button href="/uxrepublic/contact" variant="outline">Contactez-nous</Button>
+        </div>
+      </Container>
+    </section>
   )
 }
 
-function RealisationCard({
-  r,
-}: {
-  r: { title: string; company: string; desc: string }
-}) {
+function ArticleCard({ a, wide }: { a: typeof articles[number]; wide?: boolean }) {
   return (
-    <div className="w-[280px] md:w-[360px]">
-      <Card className="p-4 md:p-5">
-        <div className="space-y-3">
-          <Media alt={`Image ${r.title}`} height={200} />
-          <div className="space-y-1">
-            <div className="text-lg font-semibold tracking-tight">{r.title}</div>
-            <div className="text-sm">
-              <span className="opacity-70">Entreprise : </span>
-              <span className="font-medium underline decoration-black/20 dark:decoration-white/20">{r.company}</span>
-            </div>
-          </div>
-          <div className="text-sm opacity-80">{r.desc}</div>
+    <Card className="p-3">
+      <div className={wide ? "grid gap-3 md:grid-cols-12" : "space-y-3"}>
+        <div className={wide ? "md:col-span-7" : ""}>
+          <PlaceholderImage height={wide ? 180 : 150} />
         </div>
-      </Card>
-    </div>
+        <div className={wide ? "md:col-span-5 flex flex-col" : "flex flex-col"}>
+          <div className="text-lg leading-tight tracking-tight">{a.title}</div>
+          <div className="mt-2 text-[10px] text-black/60 dark:text-white/60 leading-relaxed flex-1">
+            {a.desc}
+          </div>
+          <div className="mt-3 flex items-center justify-between">
+            <SmallLink href={`/uxrepublic/articles/${a.slug}`}>Lire →</SmallLink>
+            <Badge>{a.category}</Badge>
+          </div>
+        </div>
+      </div>
+    </Card>
   )
 }
 
-function PersonCard({
-  p,
-}: {
-  p: { name: string; role: string; location: string }
-}) {
+function RealCard({ r }: { r: typeof realisations[number] }) {
   return (
-    <div className="w-[260px] md:w-[320px]">
-      <Card className="p-4 md:p-5">
-        <div className="space-y-3">
-          <Media alt={`Portrait ${p.name}`} height={180} />
-          <div className="space-y-1">
-            <div className="text-lg font-semibold tracking-tight">{p.name}</div>
-            <div className="text-sm opacity-80">{p.role} • {p.location}</div>
-          </div>
-          <div className="text-sm opacity-70">
-            Bio courte (placeholder) : expertise, périmètre, focus.
-          </div>
-        </div>
-      </Card>
-    </div>
+    <Card className="p-3 w-[240px]">
+      <PlaceholderImage height={140} />
+      <div className="mt-3 text-lg leading-tight tracking-tight">{r.title}</div>
+      <div className="mt-1 text-[10px]">
+        <span className="italic">{r.company}</span>
+      </div>
+      <div className="mt-2 text-[10px] text-black/60 dark:text-white/60 leading-relaxed">{r.desc}</div>
+      <div className="mt-3 flex items-center justify-between">
+        <SmallLink href="/uxrepublic/realisations">Lire →</SmallLink>
+        <Badge>Catégorie</Badge>
+      </div>
+    </Card>
+  )
+}
+
+function PersonCard({ p }: { p: typeof people[number] }) {
+  return (
+    <Card className="p-3 w-[240px]">
+      <PlaceholderImage height={120} />
+      <div className="mt-3 text-base tracking-tight">{p.name}</div>
+      <div className="text-[10px] italic text-black/70 dark:text-white/70">{p.role}</div>
+      <div className="mt-2 text-[10px] text-black/60 dark:text-white/60 leading-relaxed">{p.desc}</div>
+      <div className="mt-3">
+        <SmallLink href="/uxrepublic/page/a-propos">Lire →</SmallLink>
+      </div>
+    </Card>
   )
 }
 
 export default function Home() {
   return (
-    <div className="space-y-16">
-      {/* 1) HERO */}
-      <section className="space-y-6">
-        <Media alt="Hero" height={320} />
-        <div className="max-w-3xl space-y-3">
-          <div className="text-sm opacity-70">Baseline</div>
-          <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
-            Un studio design & produit pour des expériences utiles, accessibles et robustes.
-          </h1>
-          <p className="text-base opacity-80">
-            Texte d’intro (placeholder) : ce que fait UX Republic, pour qui, et avec quelle approche.
-          </p>
-          <div className="flex items-center gap-2 pt-2">
-            <Button href="/uxrepublic/realisations">Voir les réalisations</Button>
-            <Button href="/uxrepublic/contact" variant="ghost">Nous contacter</Button>
-          </div>
-        </div>
-      </section>
+    <div className="space-y-14">
+      <Hero />
 
-      {/* 2) ARTICLES */}
-      <section className="space-y-6">
-        <SectionHeader
-          title="Articles"
-          subtitle="Trois aperçus d’articles (gabarit). Le premier est en pleine largeur, les deux autres en 1/2."
-          action={<Button href="/uxrepublic/articles">Voir tous les articles</Button>}
-        />
-        <div className="grid gap-4">
-          <ArticleCard a={articles[0]} variant="wide" />
-          <div className="grid gap-4 md:grid-cols-2">
-            <ArticleCard a={articles[1]} variant="half" />
-            <ArticleCard a={articles[2]} variant="half" />
-          </div>
-        </div>
-      </section>
+      <Container>
+        <Hairline />
+      </Container>
 
-      {/* 3) RÉALISATIONS */}
-      <section className="space-y-6">
-        <SectionHeader
-          title="Réalisations"
-          subtitle="Slider horizontal (scroll) avec cartes."
-          action={<Button href="/uxrepublic/realisations">Voir toutes les réalisations</Button>}
-        />
-        <HorizontalCarousel>
-          {realisations.map((r) => (
-            <RealisationCard key={r.title + r.company} r={r} />
-          ))}
-        </HorizontalCarousel>
-      </section>
-
-      {/* 4) À PROPOS + CAROUSEL PERSONNES */}
-      <section className="space-y-8">
-        <SectionHeader
-          title="À propos d’UX Republic"
-          subtitle="Blocs de texte stylisés + carousel des personnes importantes."
-        />
-
-        <div className="grid gap-4 md:grid-cols-3">
-          <Card className="p-5 md:col-span-2">
-            <div className="space-y-4">
-              <div className="space-y-1">
-                <div className="text-xs uppercase tracking-wide opacity-60">Notre approche</div>
-                <div className="text-xl font-semibold tracking-tight">Du cadrage à la livraison, sans perdre l’utilisateur.</div>
-              </div>
-              <div className="text-sm md:text-base opacity-80 leading-relaxed">
-                Texte (placeholder) : discovery, tests, itérations, collaboration avec les équipes produit et tech,
-                accessibilité et design system.
-              </div>
-
-              <div className="space-y-1 pt-2">
-                <div className="text-xs uppercase tracking-wide opacity-60">Ce qui compte</div>
-                <div className="text-lg font-semibold tracking-tight">Clarté, impact, durabilité.</div>
-              </div>
-              <div className="text-sm md:text-base opacity-80 leading-relaxed">
-                Texte (placeholder) : arbitrages, contraintes, efficacité en contexte réel.
-              </div>
-            </div>
-          </Card>
-
-          <Card className="p-5">
-            <div className="space-y-3">
-              <div className="text-xs uppercase tracking-wide opacity-60">Chiffres</div>
-              <div className="text-3xl font-semibold tracking-tight">+X</div>
-              <div className="text-sm opacity-80">Experts design & produit</div>
-              <div className="pt-3 border-t border-black/10 dark:border-white/10" />
-              <div className="text-3xl font-semibold tracking-tight">+Y</div>
-              <div className="text-sm opacity-80">Missions livrées</div>
-            </div>
-          </Card>
-        </div>
-
-        <div className="space-y-4">
-          <div className="flex items-end justify-between gap-4">
-            <div className="space-y-1">
-              <div className="text-lg font-semibold tracking-tight">Personnes clés</div>
-              <div className="text-sm opacity-80">Carousel horizontal (placeholder).</div>
+      {/* ARTICLES */}
+      <section className="space-y-4">
+        <Container>
+          <SectionTitle title="Articles" action={<RowAction><SmallLink href="/uxrepublic/articles">Voir tout</SmallLink></RowAction>} />
+        </Container>
+        <Container>
+          <div className="space-y-4">
+            <ArticleCard a={articles[0]} wide />
+            <div className="grid gap-4 md:grid-cols-2">
+              <ArticleCard a={articles[1]} />
+              <ArticleCard a={articles[2]} />
             </div>
           </div>
-          <HorizontalCarousel>
-            {people.map((p, i) => (
-              <PersonCard key={p.name + i} p={p} />
-            ))}
-          </HorizontalCarousel>
-        </div>
+        </Container>
       </section>
 
-      {/* 5) FAQ */}
-      <section className="space-y-6">
-        <SectionHeader title="FAQ" subtitle="Questions fréquentes (accordion simple)." />
-        <div className="grid gap-3 max-w-3xl">
-          {faqs.map((f) => (
-            <FaqItem key={f.q} q={f.q} a={f.a} />
-          ))}
-        </div>
-      </section>
-
-      {/* 6) NEWSLETTER */}
-      <section className="space-y-6">
-        <SectionHeader
-          title="Newsletter"
-          subtitle="Inscription (placeholder)."
-        />
-        <Card className="p-5 max-w-3xl">
-          <form
-            className="grid gap-3 md:grid-cols-[1fr_auto]"
-            onSubmit={(e) => {
-              e.preventDefault()
-              alert('Inscription démo 🙂')
-            }}
-          >
-            <Input placeholder="Ton email" type="email" required />
-            <div className="md:justify-self-end">
-              <Button type="submit">S’inscrire</Button>
-            </div>
-          </form>
-          <div className="text-xs opacity-60 mt-3">
-            Pas de spam. Désinscription en 1 clic. (placeholder)
+      {/* RÉALISATIONS */}
+      <section className="space-y-4">
+        <Container>
+          <SectionTitle title="Réalisations" action={<RowAction><SmallLink href="/uxrepublic/realisations">Voir tout</SmallLink></RowAction>} />
+        </Container>
+        <Container>
+          <Carousel>
+            {realisations.map((r, i) => <RealCard key={i} r={r} />)}
+          </Carousel>
+          <div className="mt-4">
+            <Button href="/uxrepublic/page/services" variant="outline">En savoir plus sur nos services design →</Button>
           </div>
-        </Card>
+        </Container>
       </section>
 
-      {/* 7) CONTACT (mini-form + réseaux) */}
-      <section className="space-y-6">
-        <SectionHeader
-          title="Nous contacter"
-          subtitle="Formulaire court + liens utiles."
-        />
-        <div className="grid gap-4 md:grid-cols-2">
-          <Card className="p-5">
+      {/* À PROPOS */}
+      <section className="space-y-4">
+        <Container>
+          <SectionTitle title="A propos d'ux republic" />
+        </Container>
+        <Container>
+          <div className="grid gap-6 md:grid-cols-12">
+            <div className="md:col-span-7 text-[10px] text-black/60 dark:text-white/60 leading-relaxed">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            </div>
+            <div className="md:col-span-5 text-[10px] text-black/60 dark:text-white/60 leading-relaxed italic">
+              “Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.” — Lorem ipsum, lorem
+            </div>
+          </div>
+        </Container>
+        <Container>
+          <Carousel>
+            {people.map((p, i) => <PersonCard key={i} p={p} />)}
+          </Carousel>
+        </Container>
+      </section>
+
+      {/* FAQ */}
+      <section className="space-y-4">
+        <Container>
+          <SectionTitle title="FAQ" />
+        </Container>
+        <Container>
+          <div className="grid gap-3">
+            <Card className="p-4 text-[10px] text-black/60 dark:text-white/60">FAQ item (placeholder)</Card>
+            <Card className="p-4 text-[10px] text-black/60 dark:text-white/60">FAQ item (placeholder)</Card>
+            <Card className="p-4 text-[10px] text-black/60 dark:text-white/60">FAQ item (placeholder)</Card>
+          </div>
+        </Container>
+      </section>
+
+      {/* NEWSLETTER */}
+      <section className="space-y-4">
+        <Container>
+          <SectionTitle title="Newsletter" />
+        </Container>
+        <Container>
+          <Card className="p-4">
             <form
-              className="space-y-3"
-              onSubmit={(e) => {
-                e.preventDefault()
-                alert('Message démo 🙂')
-              }}
+              className="grid gap-3 md:grid-cols-[1fr_auto]"
+              onSubmit={(e) => { e.preventDefault(); alert('Inscription démo 🙂') }}
             >
-              <div className="grid gap-3 md:grid-cols-2">
-                <div>
-                  <div className="text-sm mb-1">Nom</div>
-                  <Input placeholder="Ton nom" />
-                </div>
-                <div>
-                  <div className="text-sm mb-1">Email</div>
-                  <Input placeholder="toi@exemple.com" type="email" required />
-                </div>
-              </div>
-              <div>
-                <div className="text-sm mb-1">Message</div>
-                <Textarea rows={4} placeholder="Décris ton besoin…" required />
-              </div>
-              <Button type="submit">Envoyer</Button>
+              <Input placeholder="Ton email" type="email" required />
+              <Button type="submit" variant="outline">S’inscrire</Button>
             </form>
           </Card>
+        </Container>
+      </section>
 
-          <Card className="p-5">
-            <div className="space-y-4">
-              <div>
-                <div className="text-sm font-medium">Coordonnées</div>
-                <div className="text-sm opacity-80 mt-2">
-                  Téléphone : +33 0 00 00 00 00<br />
-                  Email : hello@uxrepublic.example<br />
-                  Adresse : Bordeaux / Paris / Lyon (placeholder)
+      {/* CONTACT */}
+      <section className="space-y-4">
+        <Container>
+          <SectionTitle title="Contact" />
+        </Container>
+        <Container>
+          <div className="grid gap-4 md:grid-cols-2">
+            <Card className="p-4">
+              <form
+                className="space-y-3"
+                onSubmit={(e) => { e.preventDefault(); alert('Message démo 🙂') }}
+              >
+                <div className="grid gap-3 md:grid-cols-2">
+                  <Input placeholder="Nom" />
+                  <Input placeholder="Email" type="email" required />
                 </div>
+                <Textarea rows={4} placeholder="Message" required />
+                <Button type="submit" variant="outline">Envoyer</Button>
+              </form>
+            </Card>
+
+            <Card className="p-4 text-[10px] text-black/60 dark:text-white/60 leading-relaxed">
+              <div className="text-xs font-medium text-black dark:text-white">Coordonnées</div>
+              <div className="mt-2">
+                Téléphone : +33 0 00 00 00 00<br />
+                Email : hello@uxrepublic.example<br />
+                LinkedIn : ux-republic
               </div>
-              <div className="pt-3 border-t border-black/10 dark:border-white/10" />
-              <div>
-                <div className="text-sm font-medium">Réseaux</div>
-                <div className="mt-2 grid gap-2 text-sm">
-                  <a className="underline decoration-black/20 dark:decoration-white/20 hover:opacity-80" href="#">LinkedIn</a>
-                  <a className="underline decoration-black/20 dark:decoration-white/20 hover:opacity-80" href="#">X / Twitter</a>
-                  <a className="underline decoration-black/20 dark:decoration-white/20 hover:opacity-80" href="#">Medium</a>
-                </div>
+              <div className="mt-4 text-xs font-medium text-black dark:text-white">Réseaux</div>
+              <div className="mt-2 space-y-1">
+                <a href="#" className="underline decoration-black/20 dark:decoration-white/20">LinkedIn</a><br />
+                <a href="#" className="underline decoration-black/20 dark:decoration-white/20">X / Twitter</a><br />
+                <a href="#" className="underline decoration-black/20 dark:decoration-white/20">Medium</a>
               </div>
-            </div>
-          </Card>
-        </div>
+            </Card>
+          </div>
+        </Container>
       </section>
     </div>
   )

@@ -1,39 +1,37 @@
 import { Link } from 'react-router-dom'
-import { Badge, Card, Media, SectionHeader } from '../components/ui'
+import { Badge, Card, Container, PlaceholderImage, SectionTitle, SmallLink } from '../components/ui'
 
 const posts = [
-  { slug: 'design-system', title: 'Faire vivre un design system', category: 'Design system', desc: 'Gouvernance, usage, maintenance.' },
-  { slug: 'accessibilite', title: 'Accessibilité : les fondamentaux', category: 'Accessibilité', desc: 'Pratiques simples, impact réel.' },
-  { slug: 'product-thinking', title: 'Le product thinking au quotidien', category: 'Produit', desc: 'Décider, tester, apprendre.' },
-  { slug: 'atelier', title: 'Animer un atelier utile', category: 'Facilitation', desc: 'Préparer, cadrer, produire.' },
-  { slug: 'audit-ux', title: 'Audit UX : éviter le tunnel', category: 'Méthode', desc: 'Un audit actionnable, pas décoratif.' },
+  { slug: 'lorem-1', title: 'Lorem ipsum dolor amet', category: 'Catégorie', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+  { slug: 'lorem-2', title: 'Lorem ipsum dolor amet', category: 'Catégorie', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+  { slug: 'lorem-3', title: 'Lorem ipsum dolor amet', category: 'Catégorie', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
+  { slug: 'lorem-4', title: 'Lorem ipsum dolor amet', category: 'Catégorie', desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.' },
 ]
 
 export default function Articles() {
   return (
-    <section className="space-y-6">
-      <SectionHeader
-        title="Articles"
-        subtitle="Page de listing (placeholder)."
-      />
+    <section className="space-y-4">
+      <Container>
+        <SectionTitle title="Articles" />
+      </Container>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        {posts.map((p) => (
-          <Link key={p.slug} to={`/articles/${p.slug}`} className="group">
-            <Card className="p-4 md:p-5 hover:bg-black/5 dark:hover:bg-white/5 transition">
-              <div className="space-y-3">
-                <Media alt={p.title} height={180} />
-                <div className="flex items-center gap-2">
+      <Container>
+        <div className="grid gap-4 md:grid-cols-2">
+          {posts.map((p) => (
+            <Link key={p.slug} to={`/articles/${p.slug}`}>
+              <Card className="p-3">
+                <PlaceholderImage height={160} />
+                <div className="mt-3 text-lg tracking-tight">{p.title}</div>
+                <div className="mt-2 text-[10px] text-black/60 dark:text-white/60 leading-relaxed">{p.desc}</div>
+                <div className="mt-3 flex items-center justify-between">
+                  <SmallLink href={`/uxrepublic/articles/${p.slug}`}>Lire →</SmallLink>
                   <Badge>{p.category}</Badge>
-                  <div className="text-xs opacity-60 group-hover:opacity-100">Lire →</div>
                 </div>
-                <div className="text-lg font-semibold tracking-tight">{p.title}</div>
-                <div className="text-sm opacity-80">{p.desc}</div>
-              </div>
-            </Card>
-          </Link>
-        ))}
-      </div>
+              </Card>
+            </Link>
+          ))}
+        </div>
+      </Container>
     </section>
   )
 }
