@@ -4,7 +4,6 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import './index.css'
 
-// IMPORTANT: basename must match Vite base for nested deploy paths
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter basename="/uxrepublic">
