@@ -2,27 +2,42 @@ import { Button, Card, Container, Input, SectionTitle, Textarea } from '../compo
 
 export default function Contact() {
   return (
-    <section className="space-y-4">
+    <section className="space-y-7 soft-float">
       <Container>
-        <SectionTitle title="Contact" />
+        <div className="rounded-[2rem] border border-[var(--line)] bg-[var(--surface)] p-7 shadow-[0_24px_54px_rgba(8,14,40,0.08)] sm:p-10">
+          <SectionTitle title="Contact" />
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-[var(--ink-soft)]">
+            Decrivez votre enjeu produit, nous revenons vers vous avec une proposition de cadrage claire.
+          </p>
+        </div>
       </Container>
 
       <Container>
-        <div className="grid gap-4 md:grid-cols-2">
-          <Card className="p-4">
-            <form className="space-y-3" onSubmit={(e) => { e.preventDefault(); alert('Message démo 🙂') }}>
-              <div className="grid gap-3 md:grid-cols-2">
+        <div className="grid gap-5 md:grid-cols-2">
+          <Card className="p-5 sm:p-7">
+            <form className="space-y-3" onSubmit={(e) => { e.preventDefault(); alert('Message demo') }}>
+              <div className="grid gap-3 sm:grid-cols-2">
                 <Input placeholder="Nom" />
                 <Input placeholder="Email" type="email" required />
               </div>
-              <Textarea rows={6} placeholder="Message" required />
-              <Button type="submit" variant="outline">Envoyer</Button>
+              <Input placeholder="Entreprise" />
+              <Textarea rows={6} placeholder="Votre besoin" required />
+              <Button type="submit" variant="solid">Envoyer</Button>
             </form>
           </Card>
-          <Card className="p-4 text-[10px] text-black/60 dark:text-white/60 leading-relaxed">
-            Téléphone : +33 0 00 00 00 00<br />
-            Email : hello@uxrepublic.example<br />
-            LinkedIn : ux-republic
+          <Card className="p-5 sm:p-7">
+            <div className="text-xs uppercase tracking-[0.12em] text-[var(--ink-muted)]">Coordonnees</div>
+            <div className="mt-3 space-y-2 text-sm text-[var(--ink-soft)]">
+              <p>Telephone: +33 0 00 00 00 00</p>
+              <p>Email: hello@uxrepublic.example</p>
+              <p>LinkedIn: ux-republic</p>
+            </div>
+            <div className="mt-7 text-xs uppercase tracking-[0.12em] text-[var(--ink-muted)]">Bureaux</div>
+            <div className="mt-3 space-y-2 text-sm text-[var(--ink-soft)]">
+              <p>Paris</p>
+              <p>Lyon</p>
+              <p>Nantes</p>
+            </div>
           </Card>
         </div>
       </Container>

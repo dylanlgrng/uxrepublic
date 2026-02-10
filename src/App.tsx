@@ -5,24 +5,35 @@ import Article from './pages/Article'
 import Realisations from './pages/Realisations'
 import Contact from './pages/Contact'
 import Page from './pages/Page'
-import { Button, Container, Hairline } from './components/ui'
+import { Button, Container } from './components/ui'
 
 function TopNav() {
+  const links = [
+    { to: '/', label: 'Accueil' },
+    { to: '/articles', label: 'Articles' },
+    { to: '/realisations', label: 'Realisations' },
+    { to: '/contact', label: 'Contact' },
+  ]
+
   return (
-    <header className="pt-8">
+    <header className="sticky top-4 z-50">
       <Container>
-        <div className="flex items-center justify-between">
-          <div className="text-xs font-medium">Ux republic</div>
-          <div className="flex items-center gap-2">
-            <button
-              aria-label="Menu"
-              className="border border-black/20 dark:border-white/20 rounded px-2 py-1 text-xs hover:bg-black/5 dark:hover:bg-white/10"
-              type="button"
-            >
-              ☰
-            </button>
-            <Button href="/uxrepublic/contact" variant="outline">Contactez-nous</Button>
-          </div>
+        <div className="mx-auto flex max-w-5xl items-center justify-between rounded-full border border-[var(--line)] bg-white/75 px-4 py-3 shadow-[0_16px_40px_rgba(7,13,38,0.1)] backdrop-blur-xl sm:px-6">
+          <Link className="text-xs font-semibold uppercase tracking-[0.22em] text-[var(--ink)]" to="/">
+            UX REPUBLIC
+          </Link>
+          <nav className="hidden items-center gap-5 sm:flex">
+            {links.map((link) => (
+              <Link
+                key={link.to}
+                className="text-xs font-medium tracking-wide text-[var(--ink-soft)] transition hover:text-[var(--ink)]"
+                to={link.to}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+          <Button href="/contact" variant="solid">Contact</Button>
         </div>
       </Container>
     </header>
@@ -31,17 +42,24 @@ function TopNav() {
 
 function Footer() {
   return (
-    <footer className="mt-16 pb-12">
+    <footer className="pb-14 pt-20">
       <Container>
-        <Hairline />
-        <div className="pt-6 text-[10px] text-black/60 dark:text-white/60">
-          <div className="flex flex-wrap items-center gap-4">
-            <Link to="/" className="hover:text-black dark:hover:text-white">Accueil</Link>
-            <Link to="/articles" className="hover:text-black dark:hover:text-white">Articles</Link>
-            <Link to="/realisations" className="hover:text-black dark:hover:text-white">Réalisations</Link>
-            <Link to="/contact" className="hover:text-black dark:hover:text-white">Contact</Link>
+        <div className="rounded-3xl border border-[var(--line)] bg-white/65 px-6 py-8 shadow-[0_20px_45px_rgba(6,12,28,0.08)] backdrop-blur-lg sm:px-8">
+          <div className="grid gap-6 sm:grid-cols-2">
+            <div>
+              <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--ink)]">UX REPUBLIC</div>
+              <p className="mt-3 max-w-sm text-sm text-[var(--ink-soft)]">
+                Studio design produit et experiences digitales. Nous transformons les idees en interfaces claires, utiles et memorables.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-start gap-3 sm:justify-end">
+              <Link className="text-sm text-[var(--ink-soft)] transition hover:text-[var(--ink)]" to="/">Accueil</Link>
+              <Link className="text-sm text-[var(--ink-soft)] transition hover:text-[var(--ink)]" to="/articles">Articles</Link>
+              <Link className="text-sm text-[var(--ink-soft)] transition hover:text-[var(--ink)]" to="/realisations">Realisations</Link>
+              <Link className="text-sm text-[var(--ink-soft)] transition hover:text-[var(--ink)]" to="/contact">Contact</Link>
+            </div>
           </div>
-          <div className="mt-3">© {new Date().getFullYear()} • /uxrepublic</div>
+          <div className="mt-7 text-xs text-[var(--ink-muted)]">© {new Date().getFullYear()} UX Republic. Tous droits reserves.</div>
         </div>
       </Container>
     </footer>
@@ -50,9 +68,9 @@ function Footer() {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white text-black dark:bg-neutral-950 dark:text-white">
+    <div className="min-h-screen page-reveal">
       <TopNav />
-      <main className="pt-10">
+      <main className="pt-12 sm:pt-14">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/articles" element={<Articles />} />
@@ -60,7 +78,7 @@ export default function App() {
           <Route path="/realisations" element={<Realisations />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/page/:slug" element={<Page />} />
-          <Route path="*" element={<Container><div className="text-xs text-black/60 dark:text-white/60">Page introuvable.</div></Container>} />
+          <Route path="*" element={<Container><div className="text-sm text-[var(--ink-soft)]">Page introuvable.</div></Container>} />
         </Routes>
       </main>
       <Footer />
