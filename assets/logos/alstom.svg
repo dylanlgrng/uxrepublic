@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" role="img" aria-label="Alstom">
+  <g fill="none" stroke="#F4F2EB" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 54 C46 18, 84 18, 100 54" />
+    <path d="M120 54 C136 18, 174 18, 190 54" opacity="0.85"/>
+    <path d="M105 54 C110 44, 113 44, 118 54" opacity="0.75"/>
+  </g>
+</svg>

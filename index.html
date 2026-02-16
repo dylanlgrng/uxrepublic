@@ -3,10 +3,241 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UX Republic</title>
+    <title>UX Republic - Accueil</title>
+    <link rel="stylesheet" href="./assets/styles.css" />
   </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body data-footer="full" data-page="home">
+    <div id="header-slot"></div>
+
+    <main class="main">
+      <section class="hero" id="accueil" aria-labelledby="hero-title">
+        <div class="container hero-shell">
+          <div class="hero-media-full">
+            <img class="hero-visual" src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1800&q=80" alt="Designers qui travaillent ensemble sur un tableau avec des post-it" />
+          </div>
+          <div class="hero-overlay hero-copy">
+            <div class="hero-text-block">
+              <h1 id="hero-title">
+                <span class="hero-line">Design centré humain, croissance durable et leadership produit.</span>
+              </h1>
+              <p>Nous imaginons de nouvelles activités et des marques fortes, puis nous concevons les expériences et les capacités qui les rendent réelles. Stratégies centrées humain, mise sur le marché avec confiance.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section articles-viewport" id="articles">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Insights</p>
+              <h2 class="section-title">Articles</h2>
+            </div>
+            <a class="btn btn-ghost" href="./articles/index.html"><span>Tous les articles</span></a>
+          </div>
+
+          <article class="card card-featured featured-fit" id="home-featured"></article>
+          <div class="grid cards-3" id="home-articles-grid"></div>
+        </div>
+      </section>
+
+      <section class="section" id="chiffres">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Présentation</p>
+              <h2 class="section-title">À propos d’UX Republic</h2>
+            </div>
+          </div>
+
+          <div class="about-intro">
+            <div class="about-intro-copy">
+              <p>UX Republic accompagne les organisations sur toute la chaîne produit : recherche utilisateur, cadrage stratégique et design d’interfaces.</p>
+              <p>Nos équipes conçoivent des expériences utiles, lisibles et performantes, en alignant impact business et qualité d’usage.</p>
+            </div>
+            <div class="about-intro-cta">
+              <a class="about-arrow-link" href="./a-propos/index.html" aria-label="Aller à À propos d’UX Republic">→</a>
+            </div>
+          </div>
+
+          <div class="section-head about-stats-head">
+            <div>
+              <p class="section-kicker">Repères</p>
+              <h3 class="section-title">Chiffres clés</h3>
+            </div>
+            <button class="btn btn-ghost stats-refresh-btn" id="stats-refresh" type="button" aria-label="Relancer les chiffres">
+              <span class="stats-refresh-icon" aria-hidden="true">↺</span>
+              <span>Relancer</span>
+            </button>
+          </div>
+          <div class="stats-grid" id="home-stats-grid">
+            <article class="stat-item reveal-up">
+              <p class="stat-value"><span class="count" data-count="2013">2013</span></p>
+              <p class="stat-label">année de création</p>
+            </article>
+            <article class="stat-item reveal-up">
+              <p class="stat-value"><span class="count" data-prefix="+" data-count="85">+85</span></p>
+              <p class="stat-label">experts UX, UI et produit</p>
+            </article>
+            <article class="stat-item reveal-up">
+              <p class="stat-value">Avril <span class="count" data-count="2021">2021</span></p>
+              <p class="stat-label">accélération du collectif</p>
+            </article>
+            <article class="stat-item reveal-up">
+              <p class="stat-value"><span class="count" data-prefix="+" data-count="600">+600</span></p>
+              <p class="stat-label">participants UX-Conf · Bordeaux</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="realisations">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Cases</p>
+              <h2 class="section-title">Realisations</h2>
+            </div>
+            <div class="realisations-actions">
+              <button class="btn btn-ghost rail-btn" id="real-prev" type="button"><span>←</span></button>
+              <button class="btn btn-ghost rail-btn" id="real-next" type="button"><span>→</span></button>
+              <a class="btn btn-ghost" href="./realisations/index.html"><span>Toutes les realisations</span></a>
+            </div>
+          </div>
+          <div class="realisations-row" id="home-realisations-row" role="list" aria-label="Realisations en scroll horizontal"></div>
+          <div class="realisations-scrollbar" aria-hidden="true">
+            <span class="realisations-scrollbar-thumb" id="home-realisations-thumb"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-marquee" id="logos">
+        <div class="marquee marquee-full" aria-label="Clients">
+          <div class="marquee-track" id="home-marquee-track"></div>
+        </div>
+      </section>
+
+      <section class="section" id="agences">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Presences</p>
+              <h2 class="section-title">Nos agences</h2>
+            </div>
+          </div>
+          <div class="agencies-grid" id="home-agencies-grid"></div>
+        </div>
+      </section>
+
+      <section class="section engagement-screen" id="communautes">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Communautés</p>
+              <h2 class="section-title">Communautés</h2>
+            </div>
+          </div>
+          <div class="engagement-block-communities">
+            <div class="engagement-left">
+              <div class="engagement-community-items">
+                <article class="card uxconf-card">
+                  <div class="card-body">
+                    <h3>UX Conf</h3>
+                    <p>Visionnez et lancez le replay du dernier UX Conf tenu à Bordeaux.</p>
+                    <div class="uxconf-video-wrap">
+                      <video class="uxconf-video" controls preload="metadata" poster="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80">
+                        <source src="https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4" />
+                      </video>
+                    </div>
+                    <a class="btn btn-secondary" href="./ux-conf/index.html"><span>Voir UX Conf</span></a>
+                  </div>
+                </article>
+
+                <article class="card newsletter-main">
+                  <div class="card-body">
+                    <h3>Newsletter UX Republic</h3>
+                    <p>Chaque mois : stratégie produit, retours terrain et outils actionnables.</p>
+                    <form class="stack" data-form="contact">
+                      <label class="field"><span class="field-label">Email</span><input class="field-input" type="email" placeholder="vous@entreprise.com" required /></label>
+                      <button class="btn btn-primary" type="submit"><span>S’inscrire</span></button>
+                      <p data-status></p>
+                    </form>
+                  </div>
+                </article>
+
+                <article class="card linkedin-card">
+                  <div class="card-body">
+                    <h3>LinkedIn</h3>
+                    <p>Analyses, offres et coulisses de missions.</p>
+                    <a class="btn btn-ghost btn-linkedin-mini" href="#"><span>Suivre</span></a>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section engagement-screen" id="nous-contacter">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Nous contacter</p>
+              <h2 class="section-title">Nous contacter</h2>
+            </div>
+          </div>
+          <div class="engagement-block-contact">
+            <div class="engagement-right">
+              <div class="engagement-contact-items">
+                <article class="card">
+                  <div class="card-body">
+                    <h3>Prise de contact</h3>
+                    <form class="contact-form" data-form="contact">
+                      <div class="grid form-grid">
+                        <label class="field"><span class="field-label">Nom</span><input class="field-input" type="text" name="name" required /></label>
+                        <label class="field"><span class="field-label">Email</span><input class="field-input" type="email" name="email" required /></label>
+                      </div>
+                      <label class="field"><span class="field-label">Sujet</span><input class="field-input" type="text" name="subject" required /></label>
+                      <label class="field"><span class="field-label">Message</span><textarea class="field-input field-textarea" name="message" required></textarea></label>
+                      <label class="field-check"><input type="checkbox" /> Je consens à être recontacté.</label>
+                      <p data-status></p>
+                      <button class="btn btn-primary" type="submit"><span>Envoyer</span></button>
+                    </form>
+                  </div>
+                </article>
+
+                <aside class="card availability-panel availability-panel-live">
+                  <img class="availability-photo" src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=80" alt="Jeune femme au téléphone dans un bureau" />
+                  <div class="card-body">
+                    <p class="section-kicker">Disponible maintenant</p>
+                    <h3 class="call-title">
+                      <span class="call-rings" aria-hidden="true"><span></span><span></span><span></span></span>
+                      <span class="call-eq" aria-hidden="true"><span></span><span></span><span></span></span>
+                      Quelqu’un peut vous répondre.
+                    </h3>
+                    <p class="presence-status" id="presence-status">En ligne</p>
+                    <p>Réponse rapide en journée ouvrée.</p>
+                    <p>RDV visio possible.</p>
+                    <div class="availability-actions">
+                      <a class="btn btn-fun btn-live" href="./contact/index.html">
+                        <span class="btn-live-indicator" aria-hidden="true"><span></span></span>
+                        <span>Contactez nous</span>
+                      </a>
+                      <a class="btn btn-secondary" href="#"><span>Prendre rendez-vous</span></a>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="footer-slot"></div>
+
+    <script src="./assets/data.js"></script>
+    <script src="./assets/app.js"></script>
+    <script>window.UXLayout.initLayout()</script>
   </body>
 </html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 80" role="img" aria-label="Air France">
+  <g fill="none" stroke="#F4F2EB" stroke-width="6" stroke-linecap="round">
+    <path d="M20 58 L76 18" />
+    <path d="M82 58 L138 18" opacity="0.8"/>
+    <path d="M144 58 L200 18" opacity="0.6"/>
+  </g>
+</svg>
